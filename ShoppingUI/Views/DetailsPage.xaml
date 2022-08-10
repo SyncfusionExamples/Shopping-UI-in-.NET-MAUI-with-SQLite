@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Name="DetailPage" xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShoppingUI.DetailsPage"
+             Title="DetailsPage">
+    <ContentPage.Content>
+        <Grid RowDefinitions="350,300,150,55" RowSpacing="0" BindingContext="{Binding SelectedItem}">
+
+            <StackLayout Grid.Row="0" BackgroundColor="White" HeightRequest="350">
+                <Grid>
+                    <BoxView CornerRadius="0,0,0,0" Color="#2C363C" HeightRequest="350"/>
+                    <Grid ColumnDefinitions="*,Auto" HeightRequest="300" HorizontalOptions="FillAndExpand">
+                        <Image Grid.Column="0" Margin="10,20,10,20" Source="{Binding Picture}" HeightRequest="330" Aspect="AspectFit"/>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" BackgroundColor="#d4f1ef" HeightRequest="300">
+                <Grid>
+                    <BoxView CornerRadius="0,0,0,0" Color="White" HeightRequest="300"/>
+                    <Grid RowDefinitions="Auto,Auto,Auto,Auto" Padding="20,45,20,0" >
+                        <Label Grid.Row="1" Text="{Binding Name}" FontSize="30" FontAttributes="Bold"/>
+                        <Label Grid.Row="2" Text="{Binding Price}" FontSize="25" Padding="0,15" TextColor="#2C363C" FontAttributes="Bold"/>
+                        <Label Grid.Row="3" Text="Huge collection of watches at low offer price and discounts at COD, Easy Returns and Exchanges. Order Now." TextColor="Black"/>
+                    </Grid>
+                </Grid>
+            </StackLayout>
+
+            <BoxView Grid.Row="2" CornerRadius="0,0,50,50" Margin="0,-1,0,0" Color="White" HeightRequest="150" />
+
+            <Button Text="Add to Cart" Grid.Row="2" CornerRadius="20" Command="{Binding Source={x:Reference DetailPage},Path=BindingContext.CartItemclick}" BackgroundColor="#2C363C" Margin="60,40" FontAttributes="Bold" HeightRequest="55" TextColor="White" VerticalOptions="CenterAndExpand"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
